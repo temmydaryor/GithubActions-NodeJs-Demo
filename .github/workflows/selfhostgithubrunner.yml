@@ -1,0 +1,27 @@
+name: build NodeJS Application selfhosted and github runner
+on: 
+ workflow_dispatch:
+ push:
+jobs: 
+  job1:
+   continue-on-error: true
+   runs-on: self-hosted
+   steps: 
+    - name: Clone the repo 
+      uses: actions/checkout@v4
+    - name: Install nodejs
+      uses: actions/setup-node@v4
+      with: 
+          node-version: 18
+          cache: 'npm'
+  job2:
+   continue-on-error: true
+   runs-on: ubuntu-latest
+   steps: 
+    - name: Clone the repo 
+      uses: actions/checkout@v4
+    - name: Install nodejs
+      uses: actions/setup-node@v4
+      with: 
+          node-version: 18
+          cache: 'npm'
